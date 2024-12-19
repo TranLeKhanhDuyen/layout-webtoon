@@ -11,7 +11,7 @@ const AppWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Flex className="app_wrapper" sx={{ height: '100%', flexDirection: 'column' }}>
-        <Box width="100%" flex="1" sx={{ position: 'relative', overflowY: 'auto' }}>
+        <Box width="100%" flex="1" sx={{   margin: "0 auto", position: 'relative', overflowY: 'auto' }}>
           {children}
         </Box>
       </Flex>

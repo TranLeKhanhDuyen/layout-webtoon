@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 interface NavbarItemProps {
   label: string;
@@ -7,28 +8,29 @@ interface NavbarItemProps {
   isActive?: boolean;
 }
 
+const StyledLink = styled(Link)<{ isActive?: boolean }>`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: ${({ isActive }) => (isActive ? "#00DC64" : "#000")};
+  font-size: 20px;
+  font-weight: 500;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #00dc64;
+  }
+`;
+
 const NavbarItem: React.FC<NavbarItemProps> = ({
   label,
   href,
-  isActive = false,
-  ...props
+  isActive,
 }) => {
   return (
-    <Link
-      to={href}
-      style={{
-        display: "flex",
-        alignItems: "center",
-        textDecoration: "none",
-        color: isActive ? "#00DC64" : "#000",
-        fontSize: "20px",
-        fontWeight: 500
-        // borderBottom: isActive ? "2px solid #4EAEFD" : "none",
-        // transition: "color 0.3s, border-bottom 0.3s",
-      }}
-    >
+    <StyledLink to={href} isActive={isActive}>
       {label}
-    </Link>
+    </StyledLink>
   );
 };
 

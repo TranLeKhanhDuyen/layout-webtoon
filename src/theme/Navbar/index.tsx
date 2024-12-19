@@ -1,39 +1,76 @@
 import NavbarItem from "./NavbarItem";
 import logoBig from "assets/webtoon-center.png";
+import logo from "assets/webtoon-logo.png";
 import React from "react";
+import styled from "styled-components";
 import { Button } from "theme/Buttons";
 import { Flex, Image } from "theme/base";
 
+const NavList = styled.ul`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+`;
+
+const NavListItem = styled.li`
+  display: flex;
+  align-items: center;
+`;
+
+const NavButton = styled(Button)`
+  border-radius: 17px;
+  padding: 5;
+`;
+
+const navItems = [
+  { label: "ORIGINALS", href: "/" },
+  { label: "GENRES", href: "/genes" },
+  { label: "POPULAR", href: "/popular" },
+  { label: "CANVAS", href: "/canvas" },
+];
+
+const navItemsAfterLogo = [
+  { label: "WEBTOON SHOP", href: "/webtoon-shop" },
+  { label: "Creators 101", href: "/creators" },
+];
+
 const Navbar: React.FC = () => {
   return (
-    <nav
-      style={{
-        width: "100vw",
-        // height: "auto",
-        display: "flex",
-        // alignItems: "center",
-        // justifyContent: "space-between",
-        padding: "8px 16px",
-        backgroundColor: "#f8f9fa",
-        // boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-      }}
-    >
-      <Flex style={{ gap: "16px" }}>
-        <NavbarItem label="ORIGINALS" href="/originals" isActive={true} />
-        <NavbarItem label="GENRES" href="/genes" />
-        <NavbarItem label="POPULAR" href="/popular" />
-        <NavbarItem label="CANVAS" href="/canvas" />
-        <Image src={logoBig} sx={{ width: "250px" }} />
-        <NavbarItem label="WEBTOON SHOP" href="/webtoon-shop" />
-        <NavbarItem label="Creatos 101" href="/creatos" />
-        <Button sx={{ borderRadius: "17px", p: 0 }} variant="publish">
-          Publish
-        </Button>
-        <Button sx={{ borderRadius: "17px", p: 0 }} variant="login">
-          Log In
-        </Button>
-      </Flex>
-    </nav>
+    <Flex style={{ margin: "0 auto" }}>
+      <NavList>
+        <NavListItem>
+          <Image sx={{ width: "77px" }} src={logo} alt="Webtoon Logo" />
+        </NavListItem>
+
+        {navItems.map((item) => (
+          <NavListItem key={item.href}>
+            <NavbarItem label={item.label} href={item.href} />
+          </NavListItem>
+        ))}
+
+        <NavListItem>
+          <Image sx={{ width: "250px" }} src={logoBig} alt="Webtoon Logo" />
+        </NavListItem>
+
+        {navItemsAfterLogo.map((item) => (
+          <NavListItem key={item.href}>
+            <NavbarItem label={item.label} href={item.href} />
+          </NavListItem>
+        ))}
+
+        <NavListItem>
+          <NavButton variant="publish">Publish</NavButton>
+        </NavListItem>
+
+        <NavListItem>
+          <NavButton variant="login">Log In</NavButton>
+        </NavListItem>
+      </NavList>
+    </Flex>
   );
 };
 
