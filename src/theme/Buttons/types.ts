@@ -33,6 +33,8 @@ export const variants = {
   LONG: 'long',
   SHORT: 'short',
   NORMAL: 'normal',
+  PUBLISH: 'publish',
+  LOGIN: 'login'
 } as const
 
 export type ButtonProps = {
