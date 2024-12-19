@@ -9,14 +9,15 @@ import { Route, Switch } from "react-router-dom";
 import Loading from "theme/Loading";
 import { Box } from "theme/base";
 import ROUTES from "utils/config/routes";
+import HomePage from "./Home";
+import BannerSlider from "./Home/BannerSlider";
 
-const HomePage = lazy(() => import("./Home"));
+// const HomePage = lazy(() => import("./Home"));
 
 function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <AppWrapper>
-        <Header />
         <Suspense
           fallback={
             <Box p={4}>
@@ -24,6 +25,9 @@ function App() {
             </Box>
           }
         >
+          <Header />
+          <BannerSlider/>
+          {/* <HomePage/> */}
           <Switch>
             <Route path={ROUTES.HOME.path} exact component={HomePage}></Route>
             <Route path="*" component={NotFound}></Route>

@@ -2,6 +2,7 @@ import { useResponsive } from 'ahooks'
 
 import CustomPageTitle from 'components/@ui/CustomPageTitle'
 import { Box } from 'theme/base'
+import BannerSlider from './BannerSlider'
 
 export default function HomePage() {
   const { xl } = useResponsive()
@@ -13,9 +14,9 @@ export default function HomePage() {
     )
   return (
     <>
-      <CustomPageTitle title="Blaex" />
+      <CustomPageTitle title="WebToon" />
       <Box p={2} sx={{ height: '100%', width: '100%', maxWidth: 2000, mx: 'auto', overflow: 'hidden' }}>
-        Home
+        <BannerSlider/>
       </Box>
     </>
   )
