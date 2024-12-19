@@ -114,7 +114,6 @@ export type TextProps = HTMLAttributes<HTMLDivElement> & BoxProps
 
 const TextWrapper: React.FC<TextProps & { as?: string }> = styled(Text)`
   color: ${({ theme, color }: { theme: any; color?: string }) => (color ? theme.colors[color] : 'inherit')};
-  overflow-wrap: break-word;
   word-break: break-word;
 `
 
@@ -160,6 +159,13 @@ export const Type = {
   H5({ children, ...props }: TextProps) {
     return (
       <Box as="h5" fontSize="24px" lineHeight="32px" fontWeight="bold" letterSpacing="-1%" {...props}>
+        {children}
+      </Box>
+    )
+  },
+  H6({ children, ...props }: TextProps) {
+    return (
+      <Box as="h6" fontSize="17px" lineHeight="32px" fontWeight="bold" letterSpacing="-1%" {...props}>
         {children}
       </Box>
     )
