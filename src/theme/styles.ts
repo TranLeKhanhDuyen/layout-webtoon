@@ -9,7 +9,7 @@ const ThemedGlobalStyle = createGlobalStyle`
     font-size: 14px;
     line-height: 24px;
     color: ${({ theme }) => theme.colors.neutral1};
-    background-color: ${({ theme }) => theme.colors.background1};
+    background-color: ${({ theme }) => theme.colors.neutral1};
     font-variant: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -378,8 +378,6 @@ input[type=number] {
     }
   }
 }
-
-
 `
 
 export default ThemedGlobalStyle
