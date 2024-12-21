@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Box } from "theme/base";
+import "./index.css"
 
 const sliderData = [
   {
